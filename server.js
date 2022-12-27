@@ -10,6 +10,7 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 import { on } from 'events';
 
+
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
@@ -201,4 +202,14 @@ app.get('/search/category',(req,res)=>{
 
 // })
 
+
+
+
+const __dirname2 = path.resolve();
+
+app.use(express.static(path.join(__dirname2, './client/build')))
+
+app.get('*', (req,res)=>{
+  res.sendFile(path.resolve(__dirname2, './client/build', 'index.html'))
+})
 
