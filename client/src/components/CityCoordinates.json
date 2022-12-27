@@ -1,0 +1,39 @@
+[
+    {
+        "place": "Israel",
+        "longitude": 34.781769,
+        "latitude": 32.085300,
+        "zoom": 8
+    },
+    {
+        "place": "Tel Aviv-Yafo",
+        "longitude": 34.781769,
+        "latitude": 32.085300,
+        "zoom": 12
+    },
+    {
+        "place": "Haifa",
+        "longitude": 34.99325607402116,
+        "latitude": 32.79354237513463,
+        "zoom": 12
+    },
+    {
+        "place": "Jerusalem",
+        "longitude": 35.21373598711149,
+        "latitude": 31.76160416022397,
+        "zoom": 12
+    },
+    {
+        "place": "Acre",
+        "longitude": 35.08191697375187,
+        "latitude": 32.93296772441852,
+        "zoom": 12
+    },
+    {
+        "place": "Kfar Sava",
+        "longitude": 34.90760608285928,
+        "latitude": 32.17798068659332,
+        "zoom": 12
+    }           
+
+  ]

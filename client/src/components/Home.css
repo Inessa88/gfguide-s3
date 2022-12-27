@@ -1,0 +1,173 @@
+
+body{
+    font-family: 'Bitter';
+
+}
+.photo1{
+    width: 40vw;
+    text-align: center;
+    margin: 40px 0px;
+   
+}
+
+.sign{
+    width: 5vw;
+    margin: 20px;
+}
+.common-info{
+    width: 60vw;
+    margin: auto;
+    text-align: justify;
+    
+}
+.div1{
+    text-align: center;
+}
+
+h1 {
+     color: #333333;
+     font-size: 50px;
+     font-weight: normal;
+     line-height: 38px;
+     margin: 0 0 38px;
+     text-align: center;
+    }
+
+h2,h3 {
+    color: #333333;
+    font-size: 34px;
+    font-weight: normal;
+    line-height: 26px;
+    margin: 0 0 34px;
+    text-align: center;
+}
+
+h4 {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 12px;
+    margin: 0 0 18px;
+    text-align: center;
+}
+
+ p { 
+    color: #333333;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0 0 24px; 
+} 
+
+.container{
+    display: inline-grid;
+    grid-template-columns: 4fr 6fr;
+    padding: 10px;
+}
+
+.container-two{
+    display: inline-grid;
+    grid-template-columns: 4fr 6fr;
+    padding: 10px;
+}
+
+
+.photo2{
+    width: 24vw;
+    margin: 10vh 0px;
+   
+}
+
+.grid-element2{
+
+    text-align: justify;
+    width: 34vw;
+    margin-left: 20px;
+}
+.grid-element2 ul{
+    margin-left: 30px;
+    text-align: start;
+    margin-bottom: 20px;
+    color: #333333;
+    font-size: 18px;
+    line-height: 24px;
+    
+    
+}
+
+.grid-element2 p{
+
+    color: #333333;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0 0 24px; 
+    
+}
+
+.grid-element-three{
+    width: 20vw;
+    text-align: justify;
+    padding-left: 1.5vw;
+    margin-top: 5vh;
+}
+
+.grid-element-three ul{
+    margin-left: 2vw;
+    text-align: start;
+    color: #333333;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.photo-three{
+    width: 40vw;
+    margin-left: 18vw;
+    margin-bottom: 4vh;
+   
+}
+
+.tips{
+    width: 50vw;
+    margin-bottom: 5vh;
+}
+
+.common-info ul{
+
+    color: #333333;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0 12px 24px; 
+}
+
+.links{
+    width: 60vw;
+    margin: auto;
+    padding-top: 8vh;
+    text-align: center;
+    padding-bottom: 10vh;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+a:visited {
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: none;
+}
+
+
+a:active {
+    text-decoration: none;
+}
+
+
+
+
+
