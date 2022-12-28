@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(router);
 // app.use(express.static('public'))
-app.use(express.static(__dirname));
+app.use('/images', express.static(__dirname));
 
 
 const storage = multer.diskStorage({
