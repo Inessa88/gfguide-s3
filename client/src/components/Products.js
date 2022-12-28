@@ -17,7 +17,9 @@ const Products = (props) =>{
     const [productName, setProductName] = useState('');
     const [category, setCategory] = useState('');
     const [searchCategory, setSearchCategory] = useState([]);
-    const [msg, setMsg] = useState('')
+    const [msg, setMsg] = useState('');
+    const [isDisabledP, setIsDisabledP] = useState(false);
+    const [isDisabledC, setIsDisabledC] = useState(false);
 
     const {categoryList, setCategoryList} = useContext(AppContext);
 
@@ -62,18 +64,21 @@ const Products = (props) =>{
     },[])
 
     const handleSearch = (e) => {
+        // setIsDisabledC(true);
         setProductName(e.target.value);
     }
 
+    // const handleSearchCategory = (e)=>{
+    //     setIsDisabledP(true);
+    //     setCategory(e.target.value);
+    // }
 
     const searchGFProduct = (e) => {
         e.preventDefault()
         fetch(`/search?q=${productName}`)
           .then(res => res.json())
           .then(data => {
-            // if(data.length ===0){
-            //     return res.status(404).json({msg:'not found'})
-            // }
+            setSearchCategory([])
             setSearchProduct(data)
             console.log(searchProduct);
           })
@@ -88,17 +93,12 @@ const Products = (props) =>{
         fetch(`/search/category?q=${category}`)
           .then(res => res.json())
           .then(data => {
-            if ('msg' in data) {
-                setMsg(data.msg)
-            } else {
-                setSearchCategory(data)
-                // setCategory([])
-                console.log(data);
-            }
-
+            setSearchProduct([])
+            setSearchCategory(data)
+            console.log(searchCategory);
           })
           .catch(e=>{
-            // setMsg(e.res.data.msg)
+            setMsg(e.res.data.msg)
             console.log(e);
           })
       }
@@ -111,58 +111,56 @@ const Products = (props) =>{
         border: '1px solid gray',
         backgroundColor: 'transparent',
         color: '#5A5A5A',
-        fontSize: '16px',
+        fontSize: '18px',
         paddingLeft: '10px',
-        marginTop: '2vh'
-      };
+    };
 
     if(products.length === 0) return null
+
+    let foundBySearchProduct = Array.isArray(searchProduct);
+    let foundBySearchCategory = Array.isArray(searchCategory);
+    let result;
+    let error;
+    if (!foundBySearchProduct || !foundBySearchCategory) {
+        result = (
+            <div>
+                <p style={{marginLeft:'90vh', fontSize:'24px', fontWeight:'600', marginTop: '10vh'}}>Nothing is found...</p>
+            </div>
+        )
+        error = true;
+
+    } else if (searchProduct.length === 0 && searchCategory.length === 0) {
+        result = products;
+    } else if (searchProduct.length) {
+        result = searchProduct
+    } else {
+        result = searchCategory
+    }
+    if (!error) {
+        result = result.map(item=>{
+            return(
+                <div key ={item.id}>
+                    <p>{item.name}</p>
+                    <img src= {item.url} alt="product photo" style={{height:'200px'}}/>
+                </div>
+            )
+        })
+    }
 
     return(
         <>
         <div>
-            <TextField style={{marginTop: '5vh'}} id="outlined-basic" label="Product" name='search' variant="outlined" onChange={handleSearch}></TextField>
+        <TextField style={{marginTop: '5vh'}} id="outlined-basic" label="Product" name='search' variant="outlined" disabled={isDisabledP} onChange={handleSearch}></TextField>
             <IconButton style={{marginTop: '5vh'}} aria-label="search" variant="contained" size="large" onClick={searchGFProduct}>
                 <SearchIcon />
             </IconButton>
             
         </div>
         <div>
-        {/* <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-multiple-name-label">Category</InputLabel>
-                <Select
-                    labelId="demo-multiple-name-label"
-                    id="demo-multiple-name"
-                    multiple
-                    name='categoryId'
-                    value={category}
-                    onChange={(e)=>setCategory(e.target.value)}
-                    input={<OutlinedInput label="Category" />}
-                    
-        
-                >
-                {
-                        
-                        categoryList ? categoryList.map(item=>{
-                                return(
-                                    <MenuItem value={item.id}>{item.name}</MenuItem>)
-                                
-                            }) : {msg}
-                    }
-
-                
-                </Select>
-        </FormControl>
-        <IconButton aria-label="search" variant="contained" size="large" onClick={searchGFCategory}>
-            <SearchIcon />
-        </IconButton> */}
+            <p style={{paddingTop:"20px", marginRgiht:'40px'}}>OR</p>
         </div>
-      
-    <div>
-
-
-
-            <select style={mystyle} name='categoryId' value={category} onChange={(e)=>setCategory(e.target.value)}>
+        <div>
+            <select disabled={isDisabledC} style={mystyle} name='categoryId' value={category}  onChange={(e)=>setCategory(e.target.value)}>
             {
                 
                 categoryList ? categoryList.map(item=>{
@@ -176,63 +174,12 @@ const Products = (props) =>{
             <IconButton aria-label="search" variant="contained" size="large" onClick={searchGFCategory}>
                 <SearchIcon />
             </IconButton>
-            
-
-
         </div>
-
-
-        
-
 
         <div>
             <div className="list">
-                {
-                searchProduct ? searchProduct.map(item=>{
-                    return(
-                        <div key ={item.id}>
-                            <p>{item.name}</p>
-                            <img src= {item.url} alt="gf product" style={{height:'200px'}}/>
-                            
-
-                        </div>
-                )
-            }) : ''
-
-            }
+                {result}
             </div>
-
-            <div className="list">
-            {
-            searchCategory.length!==0 ? searchCategory.map(item=>{
-                return(
-                    <div key ={item.id}>
-                        <p>{item.name}</p>
-                        <img src= {item.url} alt="gf product" style={{height:'200px'}}/>
-                    </div>
-                )
-            }) : ''
-
-            }
-            </div>
-            <div className="list">
-
-                {
-            (searchProduct.length ===0 && searchCategory.length ===0 && products) ? products.map(item=>{
-                return(
-                    <div key ={item.id}>
-                        <p>{item.name}</p>
-                        <img src= {item.url} alt="product photo" style={{height:'240px'}}/>
-                        
-
-                    </div>
-                )
-            }) : ''
-
-            }
-            </div>
-            
-
         </div>
 
 

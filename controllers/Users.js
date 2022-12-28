@@ -68,12 +68,12 @@ export const login = async(req,res)=>{
         const email = user[0].email;
 
         const token = jwt.sign({userId, email}, process.env.ACCESS_TOKEN_SECRET,{
-            expiresIn: '60s'
+            expiresIn: '600s'
         });
 
         res.cookie('accessToken', token, {
             httpOnly: true,
-            maxAge: 60 * 1000
+            maxAge: 600 * 1000
         });
 
         res.json({token:token})
@@ -102,12 +102,12 @@ export const token = (req,res) => {
     console.log(decode.userId, decode.email);
 
     const token = jwt.sign({userId:decode.userId,email:decode.email}, process.env.ACCESS_TOKEN_SECRET, {
-      expiresIn:'60s'
+      expiresIn:'600s'
     });
   
     res.cookie('accessToken',token, {
       httpOnly: true,
-      maxAge: 60 * 1000
+      maxAge: 600 * 1000
     });
   
     res.status(200).json({token:accessToken})

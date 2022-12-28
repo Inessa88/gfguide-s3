@@ -83,7 +83,7 @@ const AddProductForm = (props) =>{
         color: '#5A5A5A',
         fontSize: '16px',
         marginTop: '4vh',
-        marginBottom: '8vh'
+        marginBottom: '9vh'
       };
     return(
         <>
