@@ -5,7 +5,7 @@ import coordinates from './CityCoordinates.json'
 
 
 
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+mapboxgl.accessToken = 'pk.eyJ1IjoiaW5lc3NhODgiLCJhIjoiY2xiejkyajZlMDZ5bzNvbzlhMTd2Z2RiZiJ9.19wJ7LCYAxTKUdbSHeE3yw';
 
 export default function GFMap() {
   const mapContainer = useRef(null);

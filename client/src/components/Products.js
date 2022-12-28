@@ -192,7 +192,7 @@ const Products = (props) =>{
                     return(
                         <div key ={item.id}>
                             <p>{item.name}</p>
-                            <img src= {`/images/${item.url}`} alt="gf product" style={{width:'200px'}}/>
+                            <img src= {item.url} alt="gf product" style={{width:'200px'}}/>
                             
 
                         </div>
@@ -208,7 +208,7 @@ const Products = (props) =>{
                 return(
                     <div key ={item.id}>
                         <p>{item.name}</p>
-                        <img src= {`/images/${item.url}`} alt="gf product" style={{width:'200px'}}/>
+                        <img src= {item.url} alt="gf product" style={{width:'200px'}}/>
                     </div>
                 )
             }) : ''
@@ -222,7 +222,7 @@ const Products = (props) =>{
                 return(
                     <div key ={item.id}>
                         <p>{item.name}</p>
-                        <img src= {`/images/${item.url}`} alt="product photo" style={{height:'240px'}}/>
+                        <img src= {item.url} alt="product photo" style={{height:'240px'}}/>
                         
 
                     </div>
