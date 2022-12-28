@@ -186,13 +186,13 @@ const Products = (props) =>{
 
 
         <div>
-            <div>
+            <div className="list">
                 {
                 searchProduct ? searchProduct.map(item=>{
                     return(
                         <div key ={item.id}>
                             <p>{item.name}</p>
-                            <img src= {item.url} alt="gf product" style={{width:'200px'}}/>
+                            <img src= {item.url} alt="gf product" style={{height:'200px'}}/>
                             
 
                         </div>
@@ -208,7 +208,7 @@ const Products = (props) =>{
                 return(
                     <div key ={item.id}>
                         <p>{item.name}</p>
-                        <img src= {item.url} alt="gf product" style={{width:'200px'}}/>
+                        <img src= {item.url} alt="gf product" style={{height:'200px'}}/>
                     </div>
                 )
             }) : ''

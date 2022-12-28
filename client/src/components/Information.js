@@ -6,7 +6,7 @@ const Information = (props) =>{
        <div>
             
         <div className='div1'>
-        <img className='photo1' src="Gluten-Free-Diet.png" alt="Main Picture" />
+        <img className='photo1' src="https://images-django-test.s3.eu-central-1.amazonaws.com/images/Gluten-Free-Diet.png" alt="Main Picture" />
         <div className='common-info'>
             <h1>What is Celiac Disease?</h1>
            <p>Celiac disease is a serious autoimmune disease that occurs in genetically predisposed people where the ingestion of gluten leads to damage in the small intestine. It is estimated to affect 1 in 100 people worldwide, but only about 30% are properly diagnosed.</p>
@@ -40,7 +40,7 @@ const Information = (props) =>{
                 <h3>Foods containing gluten</h3>
                 <div className='container'>
                     <div className='grid-element1'>
-                       <img className='photo2' src="gluten.jpg" alt="Gluten containing foods" /> 
+                       <img className='photo2' src="https://images-django-test.s3.eu-central-1.amazonaws.com/images/3a92b421-b366-4b0a-917c-5d5a1d9c4788.jpeg" alt="Gluten containing foods" /> 
                     </div>
                     <div className='grid-element2'>
                         <p>If you have celiac disease, do not eat the following foods, unless they're labelled as gluten-free versions:</p>
@@ -129,7 +129,7 @@ const Information = (props) =>{
             
             <div>
                 <h3>Travelling Gluten-Free</h3>
-                <img className='photo1' src="pexels-monstera-7412090.jpg" alt="Gluten-Free traavelling" />
+                <img className='photo1' src="https://images-django-test.s3.eu-central-1.amazonaws.com/images/pexels-monstera-7412090.jpg" alt="Gluten-Free traavelling" />
                 <div className='common-info'>
 
                     <h4>Planning your trip</h4>
