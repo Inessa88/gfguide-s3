@@ -64,9 +64,20 @@ const Products = (props) =>{
     },[])
 
     const handleSearch = (e) => {
-        // setIsDisabledC(true);
-        setProductName(e.target.value);
+        // if(productName.length !== 0){
+            setProductName(e.target.value);
+            // setIsDisabledC(true);
+        // } else{
+        //     setIsDisabledC(false);
+        
+        // }
+
+        
     }
+
+    // const handelingFields = () =>{
+              
+    // }
 
     // const handleSearchCategory = (e)=>{
     //     setIsDisabledP(true);
@@ -108,11 +119,14 @@ const Products = (props) =>{
         width: '12.5vw',
         height: '6vh',
         borderRadius: '5px',
+        border: '1px solid darkGrey',
         border: '1px solid gray',
         backgroundColor: 'transparent',
         color: '#5A5A5A',
         fontSize: '18px',
-        paddingLeft: '10px',
+        fontFamily: 'Bitter',
+        paddingLeft: '10px'
+        // marginTop: '2vh'
     };
 
     if(products.length === 0) return null
@@ -150,17 +164,19 @@ const Products = (props) =>{
     return(
         <>
         <div>
-        <TextField style={{marginTop: '5vh'}} id="outlined-basic" label="Product" name='search' variant="outlined" disabled={isDisabledP} onChange={handleSearch}></TextField>
-            <IconButton style={{marginTop: '5vh'}} aria-label="search" variant="contained" size="large" onClick={searchGFProduct}>
+        <input style={mystyle} label="Product" placeholder='Product' name='search'  disabled={isDisabledP} onChange={handleSearch}/>
+        {/* <TextField style={{marginTop: '5vh'}} id="outlined-basic" label="Product" name='search' variant="outlined" disabled={isDisabledP} onChange={handleSearch}></TextField> */}
+            <IconButton aria-label="search" variant="contained" size="large" onClick={searchGFProduct}>
                 <SearchIcon />
             </IconButton>
             
         </div>
         <div>
-            <p style={{paddingTop:"20px", marginRgiht:'40px'}}>OR</p>
+        <p style={{paddingTop:"20px", marginLeft:'48vw', textAlign:'start'}}>OR</p>
         </div>
         <div>
             <select disabled={isDisabledC} style={mystyle} name='categoryId' value={category}  onChange={(e)=>setCategory(e.target.value)}>
+            <option defaultValue={true}>Choose category</option>
             {
                 
                 categoryList ? categoryList.map(item=>{
