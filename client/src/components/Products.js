@@ -2,7 +2,6 @@ import {useState, useEffect, useContext} from 'react';
 import {AppContext} from '../App'
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import axios from 'axios';
 import { TextField } from '@mui/material';
 import { IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
@@ -172,7 +171,7 @@ const Products = (props) =>{
             
         </div>
         <div>
-        <p style={{paddingTop:"20px", marginLeft:'48vw', textAlign:'start'}}>OR</p>
+        <p style={{paddingTop:"20px", marginLeft:'47vw', textAlign:'start'}}>OR</p>
         </div>
         <div>
             <select disabled={isDisabledC} style={mystyle} name='categoryId' value={category}  onChange={(e)=>setCategory(e.target.value)}>

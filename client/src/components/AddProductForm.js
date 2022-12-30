@@ -68,7 +68,7 @@ const AddProductForm = (props) =>{
         color: '#5A5A5A',
         fontSize: '18px',
         paddingLeft: '10px',
-        marginTop: '3vh'
+        marginTop: '1vh'
         
       };
 
@@ -94,7 +94,7 @@ const AddProductForm = (props) =>{
         color: 'black',
         fontWeigth: '600',
         fontSize: '16px',
-        marginTop: '4vh',
+        marginTop: '1vh',
         marginBottom: '9vh'
       };
     return(
