@@ -20,7 +20,7 @@ export default function GFMap() {
   
 
   useEffect(() => {
-      fetch('/map')
+      fetch('/api/map')
       .then(res => {
           if (res.status===200){
               return res.json()

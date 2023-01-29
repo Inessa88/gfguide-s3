@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  ##############################
+  # Backend Container
+  ##############################
+  api:
+    env_file: "./api/.env"
+    container_name: api
+    restart: always
+    image: "inessa88/gfguide:production_14012023_api"
+    ports:
+      - "4000:4000"
+
+  ##############################
+  # UI Container
+  ##############################
+  ui:
+    image: "inessa88/gfguide:production_14012023_ui"
+    restart: always
+    container_name: ui
+    ports:
+      - "8080:80"
+      - "443:443"
+    depends_on:
+      - api

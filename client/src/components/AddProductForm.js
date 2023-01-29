@@ -19,7 +19,7 @@ const AddProductForm = (props) =>{
     const navigate = useNavigate();
 
         useEffect(()=>{
-            fetch('/categories')
+            fetch('/api/categories')
             .then(res => {
                 if (res.status===200){
                     return res.json()
@@ -50,7 +50,7 @@ const AddProductForm = (props) =>{
         data.append('file', selectedFile);
         axios({
             method: "post",
-            url: "/upload",
+            url: "/api/upload",
             data: data,
           })
           .then((res) => {

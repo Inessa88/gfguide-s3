@@ -1,0 +1,70 @@
+version: "3.7"
+
+services:
+  ##############################
+  # Backend Container
+  ##############################
+  # postgres:
+  #   image: inessa/gfguide:production_14062021_postgres
+  #   hostname: postgres
+  #   container_name: postgres
+  #   restart: always
+  #   build:
+  #     context: ./api/config
+  #     dockerfile: Dockerfile.db
+  #   ports:
+  #     - "9999:5432"
+  #   environment:
+  #     POSTGRES_DB: gfguide
+  #     DB_USER: postgres
+  #     DB_PASSWORD: abc12345
+
+  #   volumes:
+  #     - gfguide:/var/lib/postgresql/data
+  api:
+    env_file: "./api/.env"
+    container_name: api
+    restart: always
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: "inessa88/gfguide:production_14012023_api"
+    # depends_on:
+    #   - postgres
+
+    ports:
+      - "4000:4000"
+
+  ##############################
+  # UI Container
+  ##############################
+  ui:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: "inessa88/gfguide:production_14012023_ui"
+    restart: always
+    container_name: ui
+    ports:
+      - "8080:80"
+      - "443:443"
+    depends_on:
+      - api
+
+
+
+##############################
+# Pgadmin Container
+##############################
+# pgadmin:
+#   container_name: pgadmin4_container
+#   image: dpage/pgadmin4
+#   restart: always
+#   environment:
+#     PGADMIN_DEFAULT_EMAIL: a@a.com
+#     PGADMIN_DEFAULT_PASSWORD: root
+#   ports:
+#     - "5050:80"
+
+volumes:
+  gfguide:
