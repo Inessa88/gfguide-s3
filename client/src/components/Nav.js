@@ -42,9 +42,6 @@ const Nav = (props) => {
             <Button component={Link} to="/products">
                 Products
             </Button>
-            <Button component={Link} to="/upload">
-                Add product
-            </Button>
             <Button component={Link} to="/uploadfile">
                 Add new product
             </Button>

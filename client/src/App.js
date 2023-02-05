@@ -6,7 +6,6 @@ import Products from "./components/Products";
 import "mapbox-gl/dist/mapbox-gl.css";
 import GFMap from "./components/GFMap";
 import Footer from "./components/Footer";
-import AddProductForm from "./components/AddProductForm";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import { Auth } from "./auth/Auth";
@@ -39,14 +38,6 @@ function App() {
                             element={
                                 <Auth>
                                     <Products />
-                                </Auth>
-                            }
-                        />
-                        <Route
-                            path="/upload"
-                            element={
-                                <Auth>
-                                    <AddProductForm />
                                 </Auth>
                             }
                         />
