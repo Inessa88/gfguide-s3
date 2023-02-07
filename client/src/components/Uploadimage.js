@@ -3,6 +3,10 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { AppContext } from "../App";
 import { useNavigate } from "react-router-dom";
+import './Uploadimage.css';
+import { ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Uploadimage = () => {
     const [name, setName] = useState("");
@@ -54,14 +58,16 @@ const Uploadimage = () => {
             })
             .then((res) => {
                 if (res.status === 200)
-                    return setSuccessmessage("File uploaded successfully");
+                    toast.success('File uploaded successfully!');
+                    // return setSuccessmessage("File uploaded successfully");
             })
             .catch((error) => {
-                this.setErrormessage(
+                setErrormessage(
                     error.response.status + " Please select the file"
                 );
             });
     };
+
 
     const myinputstyle = {
         width: "12.5vw",
@@ -141,6 +147,7 @@ const Uploadimage = () => {
                     <button style={buttonstyle}>Upload</button>
                 </div>
             </form>
+            <ToastContainer/>
         </div>
     );
 };
