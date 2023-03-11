@@ -84,6 +84,7 @@ app.post("/api/uploadfile", upload.single("file"), (req, res) => {
                             category_id: Number(category),
                             main_picture_id: data[0].id,
                             post_date: new Date().toISOString().split("T")[0],
+                            approved: false,
                         })
                         .then((rows) => {
                             res.json(rows);
