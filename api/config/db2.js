@@ -3,11 +3,11 @@ import knex from "knex";
 const db2 = knex({
     client: "pg",
     connection: {
-        host: "awseb-e-rvy2jemfqh-stack-awsebrdsdatabase-wsddots0p7bn.c38qkcqvjf1o.eu-central-1.rds.amazonaws.com",
-        port: "5432",
-        user: "postgres",
-        password: "postgres",
-        database: "ebdb",
+        host: process.env.DB_HOST,
+        port: process.env.PORT,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME,
     },
 });
 
